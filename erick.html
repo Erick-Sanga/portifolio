@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Erick Sanga | Cybersecurity Professional</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #1a252f;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--dark));
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .header-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3');
+            background-size: cover;
+            opacity: 0.2;
+            z-index: 1;
+        }
+        
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .tagline {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--secondary);
+            font-weight: 300;
+        }
+        
+        .social-links {
+            margin: 1rem 0;
+        }
+        
+        .social-links a {
+            color: white;
+            margin: 0 10px;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: var(--secondary);
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: var(--accent);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 1rem;
+            transition: all 0.3s;
+            border: 2px solid var(--accent);
+        }
+        
+        .cta-button:hover {
+            background-color: transparent;
+            color: var(--accent);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        section {
+            margin-bottom: 3rem;
+            background-color: white;
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        h2 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--secondary);
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+        
+        .skill-card {
+            background-color: var(--light);
+            padding: 1rem;
+            border-radius: 5px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        
+        .skill-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .skill-card i {
+            font-size: 2rem;
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .experience-item, .education-item {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .experience-item:last-child, .education-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .experience-title, .education-title {
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: 0.3rem;
+        }
+        
+        .experience-company, .education-institution {
+            color: var(--secondary);
+            margin-bottom: 0.3rem;
+        }
+        
+        .experience-date, .education-date {
+            color: #777;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .project-card {
+            border: 1px solid #eee;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .project-image {
+            height: 180px;
+            background-color: #ddd;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .project-content {
+            padding: 1.5rem;
+        }
+        
+        .project-title {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .project-links a {
+            color: var(--secondary);
+            margin-right: 1rem;
+            text-decoration: none;
+        }
+        
+        footer {
+            background-color: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin: 1.5rem 0;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-item i {
+            margin-right: 0.5rem;
+            color: var(--secondary);
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .tagline {
+                font-size: 1.2rem;
+            }
+            
+            .skills-grid {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-bg"></div>
+        <div class="header-content">
+            <h1>ERICK SANGA</h1>
+            <p class="tagline">Cybersecurity Specialist | Penetration Tester | Bug Bounty Hunter</p>
+            
+            <div class="social-links">
+                <a href="https://linkedin.com/in/yourprofile" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/yourusername" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://twitter.com/yourhandle" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="https://hackerone.com/yourprofile" target="_blank"><i class="fab fa-hackerrank"></i></a>
+            </div>
+            
+            <a href="#contact" class="cta-button">Hire Me</a>
+        </div>
+    </header>
+    
+    <div class="container">
+        <section id="about">
+            <h2>About Me</h2>
+            <p>
+                Passionate cybersecurity professional from Tanzania with expertise in penetration testing, vulnerability assessment, and bug bounty hunting. 
+                Active participant in national cybersecurity forums and competitions, committed to securing digital assets and raising cybersecurity awareness.
+            </p>
+            <p>
+                My approach combines technical skills with strategic thinking to identify and mitigate security risks before they can be exploited. 
+                I stay at the forefront of cybersecurity trends to provide cutting-edge protection against evolving threats.
+            </p>
+        </section>
+        
+        <section id="skills">
+            <h2>Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Penetration Testing</h3>
+                    <p>OWASP methodologies, vulnerability scanning, exploitation</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-bug"></i>
+                    <h3>Bug Bounty</h3>
+                    <p>Web/mobile app testing, vulnerability research, report writing</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-network-wired"></i>
+                    <h3>Network Security</h3>
+                    <p>Firewalls, IDS/IPS, network segmentation, VPNs</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-code"></i>
+                    <h3>Secure Coding</h3>
+                    <p>Python, Bash, JavaScript, security best practices</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-lock"></i>
+                    <h3>Cryptography</h3>
+                    <p>Encryption algorithms, PKI, TLS/SSL implementation</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-user-secret"></i>
+                    <h3>Ethical Hacking</h3>
+                    <p>Red teaming, social engineering, physical security</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="experience">
+            <h2>Professional Experience</h2>
+            
+            <div class="experience-item">
+                <div class="experience-title">Cybersecurity Consultant</div>
+                <div class="experience-company">Freelance</div>
+                <div class="experience-date">2022 - Present</div>
+                <ul>
+                    <li>Conducted penetration tests for 15+ clients across various industries</li>
+                    <li>Discovered and reported critical vulnerabilities in web applications</li>
+                    <li>Provided security recommendations and remediation guidance</li>
+                </ul>
+            </div>
+            
+            <div class="experience-item">
+                <div class="experience-title">Bug Bounty Hunter</div>
+                <div class="experience-company">HackerOne, Bugcrowd</div>
+                <div class="experience-date">2021 - Present</div>
+                <ul>
+                    <li>Ranked in top 10% of bug bounty hunters in East Africa</li>
+                    <li>Reported 50+ valid vulnerabilities including XSS, CSRF, and IDOR</li>
+                    <li>Recognized by multiple organizations for quality reports</li>
+                </ul>
+            </div>
+            
+            <div class="experience-item">
+                <div class="experience-title">IT Security Intern</div>
+                <div class="experience-company">Tanzania Cybersecurity Forum</div>
+                <div class="experience-date">2020 - 2021</div>
+                <ul>
+                    <li>Assisted in security assessments of government systems</li>
+                    <li>Participated in national cybersecurity awareness campaigns</li>
+                    <li>Helped organize cybersecurity competitions and workshops</li>
+                </ul>
+            </div>
+        </section>
+        
+        <section id="education">
+            <h2>Education & Certifications</h2>
+            
+            <div class="education-item">
+                <div class="education-title">Certified Ethical Hacker (CEH)</div>
+                <div class="education-institution">EC-Council</div>
+                <div class="education-date">2023</div>
+            </div>
+            
+            <div class="education-item">
+                <div class="education-title">BSc in Computer Science</div>
+                <div class="education-institution">University of Dar es Salaam</div>
+                <div class="education-date">2018 - 2022</div>
+            </div>
+            
+            <div class="education-item">
+                <div class="education-title">Offensive Security Certified Professional (OSCP)</div>
+                <div class="education-institution">Offensive Security</div>
+                <div class="education-date">In Progress</div>
+            </div>
+        </section>
+        
+        <section id="projects">
+            <h2>Notable Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3');"></div>
+                    <div class="project-content">
+                        <h3 class="project-title">Tanzania Cybersecurity Awareness Platform</h3>
+                        <p>Developed an educational platform to teach cybersecurity fundamentals to Tanzanian students and professionals.</p>
+                        <div class="project-links">
+                            <a href="#" target="_blank">View Project</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-4.0.3');"></div>
+                    <div class="project-content">
+                        <h3 class="project-title">Vulnerable Web App for Training</h3>
+                        <p>Created intentionally vulnerable web application to help others learn penetration testing techniques.</p>
+                        <div class="project-links">
+                            <a href="#" target="_blank">View Project</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1563206767-5b18f218e8de?ixlib=rb-4.0.3');"></div>
+                    <div class="project-content">
+                        <h3 class="project-title">Automated Security Scanner</h3>
+                        <p>Built a custom tool to automate common security tests and vulnerability scans.</p>
+                        <div class="project-links">
+                            <a href="#" target="_blank">View Project</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="achievements">
+            <h2>Achievements & Recognition</h2>
+            <ul>
+                <li>Winner of 2023 Tanzania National Cybersecurity Challenge</li>
+                <li>Featured speaker at East Africa Cybersecurity Conference 2022</li>
+                <li>Recognized by Tanzania Communications Regulatory Authority for security contributions</li>
+                <li>Published articles on cybersecurity in local tech magazines</li>
+                <li>Mentor for aspiring cybersecurity professionals in Tanzania</li>
+            </ul>
+        </section>
+        
+        <section id="contact">
+            <h2>Get In Touch</h2>
+            <p>I'm always interested in discussing cybersecurity projects, collaborations, or job opportunities. Feel free to reach out!</p>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>ericksanga@example.com</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span>+255 XXX XXX XXX</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Dar es Salaam, Tanzania</span>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <footer>
+        <p>&copy; 2023 Erick Sanga. All rights reserved.</p>
+        <p>Securing the digital world, one vulnerability at a time.</p>
+    </footer>
+</body>
+</html>
