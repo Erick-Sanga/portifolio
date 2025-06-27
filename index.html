@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Erick Sanga | Cybersecurity Professional</title>
+    <meta name="description" content="Erick Sanga - Cybersecurity Professional Portfolio" />
+    <meta name="keywords" content="cybersecurity, penetration testing, bug bounty, ethical hacking" />
+    <meta name="author" content="Erick Sanga" />
+    <title>Erick Sanga - Cybersecurity Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -30,6 +33,48 @@
             overflow-x: hidden;
         }
         
+        /* Preloader */
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--primary);
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .spinner {
+            width: 70px;
+            height: 70px;
+            position: relative;
+        }
+        
+        .double-bounce1, .double-bounce2 {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background-color: var(--secondary);
+            opacity: 0.6;
+            position: absolute;
+            top: 0;
+            left: 0;
+            animation: bounce 2.0s infinite ease-in-out;
+        }
+        
+        .double-bounce2 {
+            animation-delay: -1.0s;
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: scale(0.0); }
+            50% { transform: scale(1.0); }
+        }
+        
+        /* Header */
         header {
             background: linear-gradient(135deg, var(--dark), var(--primary));
             color: var(--text);
@@ -38,6 +83,10 @@
             position: relative;
             overflow: hidden;
             border-bottom: 1px solid var(--secondary);
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         
         .header-content {
@@ -165,6 +214,43 @@
             box-shadow: 0 0 5px var(--secondary);
         }
         
+        /* About Section */
+        .about-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+        
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+            background-size: cover;
+            background-position: center;
+            min-height: 300px;
+            border: 1px solid var(--secondary);
+        }
+        
+        .personal-info {
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+        }
+        
+        .personal-info div {
+            width: 50%;
+            margin-bottom: 1rem;
+        }
+        
+        .personal-info span {
+            color: var(--accent);
+        }
+        
+        /* Skills Section */
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -192,130 +278,108 @@
             margin-bottom: 0.5rem;
         }
         
-        .skill-card h3 {
-            margin-bottom: 0.5rem;
-            color: var(--secondary);
-        }
-        
-        .skill-card p {
-            color: #00cc38;
-            font-size: 0.9rem;
-        }
-        
-        .experience-item, .education-item {
-            margin-bottom: 1.5rem;
-            padding-bottom: 1.5rem;
+        /* Resume Section */
+        .resume-item {
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
             border-bottom: 1px solid var(--light);
         }
         
-        .experience-item:last-child, .education-item:last-child {
+        .resume-item:last-child {
             border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
         }
         
-        .experience-title, .education-title {
-            font-weight: bold;
-            font-size: 1.2rem;
-            margin-bottom: 0.3rem;
+        .resume-item h4 {
             color: var(--secondary);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
         }
         
-        .experience-company, .education-institution {
+        .resume-item h4 i {
+            margin-right: 10px;
             color: var(--accent);
-            margin-bottom: 0.3rem;
-            font-style: italic;
         }
         
-        .experience-date, .education-date {
-            color: #007a2d;
-            font-size: 0.9rem;
+        .resume-date {
+            color: var(--accent);
+            font-style: italic;
             margin-bottom: 0.5rem;
         }
         
-        .experience-item ul, #achievements ul {
-            list-style-type: none;
-            padding-left: 1rem;
+        .resume-item h5 {
+            color: var(--text);
+            margin-bottom: 0.5rem;
         }
         
-        .experience-item ul li::before, #achievements ul li::before {
-            content: "> ";
-            color: var(--secondary);
-        }
-        
-        .projects-grid {
+        /* Services Section */
+        .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 1.5rem;
         }
         
-        .project-card {
-            border: 1px solid var(--light);
-            border-radius: 0;
-            overflow: hidden;
+        .service-card {
+            background-color: var(--light);
+            padding: 2rem;
+            border: 1px solid var(--secondary);
             transition: all 0.3s;
+            text-align: center;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 255, 65, 0.3);
             background-color: var(--dark);
         }
         
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 0 20px rgba(0, 255, 65, 0.2);
-            border-color: var(--secondary);
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 1rem;
         }
         
-        .project-image {
-            height: 180px;
-            background-color: var(--light);
-            background-size: cover;
-            background-position: center;
+        /* Counters */
+        .counters {
+            background-color: var(--dark);
+            padding: 3rem 0;
+            border-top: 1px solid var(--light);
             border-bottom: 1px solid var(--light);
         }
         
-        .project-content {
-            padding: 1.5rem;
-        }
-        
-        .project-title {
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-            color: var(--secondary);
-        }
-        
-        .project-links a {
-            color: var(--accent);
-            margin-right: 1rem;
-            text-decoration: none;
-            transition: all 0.3s;
-            font-weight: bold;
-        }
-        
-        .project-links a:hover {
-            color: var(--secondary);
-            text-shadow: 0 0 5px var(--secondary);
-        }
-        
-        footer {
-            background-color: var(--dark);
-            color: var(--text);
+        .counter-item {
             text-align: center;
-            padding: 2rem 0;
-            border-top: 1px solid var(--secondary);
+            padding: 1rem;
         }
         
+        .counter-number {
+            font-size: 3rem;
+            color: var(--secondary);
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        
+        .counter-label {
+            color: var(--text);
+            font-size: 1rem;
+        }
+        
+        /* Contact Section */
         .contact-info {
             display: flex;
-            justify-content: center;
             flex-wrap: wrap;
-            gap: 2rem;
-            margin: 1.5rem 0;
+            gap: 1.5rem;
+            margin: 2rem 0;
         }
         
         .contact-item {
             display: flex;
             align-items: center;
-            padding: 0.5rem 1rem;
+            padding: 1rem;
             border: 1px solid var(--light);
             transition: all 0.3s;
+            flex: 1;
+            min-width: 200px;
         }
         
         .contact-item:hover {
@@ -328,6 +392,55 @@
             color: var(--secondary);
         }
         
+        /* Form */
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        input, textarea {
+            width: 100%;
+            padding: 0.8rem;
+            background-color: var(--light);
+            border: 1px solid var(--secondary);
+            color: var(--text);
+        }
+        
+        textarea {
+            min-height: 150px;
+        }
+        
+        button[type="submit"] {
+            background-color: transparent;
+            color: var(--secondary);
+            padding: 0.8rem 2rem;
+            border: 2px solid var(--secondary);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        button[type="submit"]:hover {
+            background-color: var(--secondary);
+            color: var(--primary);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: var(--text);
+            text-align: center;
+            padding: 2rem 0;
+            border-top: 1px solid var(--secondary);
+        }
+        
+        .footer-logo {
+            color: var(--secondary);
+            text-decoration: none;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+        
+        /* Responsive */
         @media (max-width: 768px) {
             h1 {
                 font-size: 2rem;
@@ -337,39 +450,32 @@
                 font-size: 1.2rem;
             }
             
+            .personal-info div {
+                width: 100%;
+            }
+            
             .skills-grid {
                 grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
             }
             
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .contact-info {
-                flex-direction: column;
-                gap: 1rem;
-                align-items: center;
+            .contact-item {
+                min-width: 100%;
             }
         }
         
-        /* Terminal-like effect for code elements */
-        code {
-            background-color: var(--light);
-            color: var(--secondary);
-            padding: 0.2rem 0.4rem;
-            border: 1px solid var(--secondary);
-            font-family: 'Courier New', monospace;
-            font-size: 0.9rem;
+        /* Animations */
+        @keyframes glow {
+            from {
+                opacity: 0.3;
+                box-shadow: 0 0 5px var(--secondary);
+            }
+            to {
+                opacity: 0.7;
+                box-shadow: 0 0 20px var(--secondary);
+            }
         }
         
-        /* Glowing effects for interactive elements */
-        .cta-button, .project-card:hover, .skill-card:hover, .contact-item:hover {
-            position: relative;
-            z-index: 1;
-        }
-        
-        .cta-button:hover::after, .project-card:hover::after, 
-        .skill-card:hover::after, .contact-item:hover::after {
+        .glow-effect:hover::after {
             content: '';
             position: absolute;
             top: 0;
@@ -382,20 +488,17 @@
             animation: glow 1.5s infinite alternate;
             z-index: -1;
         }
-        
-        @keyframes glow {
-            from {
-                opacity: 0.3;
-                box-shadow: 0 0 5px var(--secondary);
-            }
-            to {
-                opacity: 0.7;
-                box-shadow: 0 0 20px var(--secondary);
-            }
-        }
     </style>
 </head>
 <body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="spinner">
+            <div class="double-bounce1"></div>
+            <div class="double-bounce2"></div>
+        </div>
+    </div>
+
     <header>
         <div class="header-bg"></div>
         <div class="header-content">
@@ -414,18 +517,46 @@
     </header>
     
     <div class="container">
+        <!-- About Section -->
         <section id="about">
             <h2>About Me</h2>
-            <p>
-                Passionate cybersecurity professional from Tanzania with expertise in penetration testing, vulnerability assessment, and bug bounty hunting. 
-                Active participant in national cybersecurity forums and competitions, committed to securing digital assets and raising cybersecurity awareness.
-            </p>
-            <p>
-                My approach combines technical skills with strategic thinking to identify and mitigate security risks before they can be exploited. 
-                I stay at the forefront of cybersecurity trends to provide cutting-edge protection against evolving threats.
-            </p>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>
+                        Passionate cybersecurity professional from Tanzania with expertise in penetration testing, vulnerability assessment, and bug bounty hunting. 
+                        Active participant in national cybersecurity forums and competitions, committed to securing digital assets and raising cybersecurity awareness.
+                    </p>
+                    <p>
+                        My approach combines technical skills with strategic thinking to identify and mitigate security risks before they can be exploited. 
+                        I stay at the forefront of cybersecurity trends to provide cutting-edge protection against evolving threats.
+                    </p>
+                    
+                    <div class="personal-info">
+                        <div>
+                            <span>Name: </span> Erick Sanga
+                        </div>
+                        <div>
+                            <span>Email: </span> ericksanga@example.com
+                        </div>
+                        <div>
+                            <span>Phone: </span> +255 747439472
+                        </div>
+                        <div>
+                            <span>Location: </span> Dar es Salaam, Tanzania
+                        </div>
+                    </div>
+                    
+                    <div style="margin-top: 2rem;">
+                        <a href="#" class="cta-button" style="margin-right: 1rem;">Download CV</a>
+                        <a href="#contact" class="cta-button">Hire Me</a>
+                    </div>
+                </div>
+                
+                <div class="about-image" style="background-image: url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3');"></div>
+            </div>
         </section>
         
+        <!-- Skills Section -->
         <section id="skills">
             <h2>Technical Skills</h2>
             <div class="skills-grid">
@@ -462,13 +593,15 @@
             </div>
         </section>
         
-        <section id="experience">
-            <h2>Professional Experience</h2>
+        <!-- Resume Section -->
+        <section id="resume" style="background-color: var(--dark);">
+            <h2>My Resume</h2>
+            <p>We tend to blame or accuse the most capable and deserving individuals for the difficult things in life, even though they are the ones who handle those challenges for everyone.</p>
             
-            <div class="experience-item">
-                <div class="experience-title">Cybersecurity Consultant</div>
-                <div class="experience-company">Freelance</div>
-                <div class="experience-date">2022 - Present</div>
+            <div class="resume-item">
+                <h4><i class="fas fa-briefcase"></i> Cybersecurity Consultant</h4>
+                <div class="resume-date">2022 - Present</div>
+                <h5>Freelance</h5>
                 <ul>
                     <li>Conducted penetration tests for 15+ clients across various industries</li>
                     <li>Discovered and reported critical vulnerabilities in web applications</li>
@@ -476,10 +609,10 @@
                 </ul>
             </div>
             
-            <div class="experience-item">
-                <div class="experience-title">Bug Bounty Hunter</div>
-                <div class="experience-company">HackerOne, Bugcrowd</div>
-                <div class="experience-date">2021 - Present</div>
+            <div class="resume-item">
+                <h4><i class="fas fa-bug"></i> Bug Bounty Hunter</h4>
+                <div class="resume-date">2021 - Present</div>
+                <h5>HackerOne, Bugcrowd</h5>
                 <ul>
                     <li>Ranked in top 10% of bug bounty hunters in East Africa</li>
                     <li>Reported 50+ valid vulnerabilities including XSS, CSRF, and IDOR</li>
@@ -487,113 +620,211 @@
                 </ul>
             </div>
             
-            <div class="experience-item">
-                <div class="experience-title">IT Security Intern</div>
-                <div class="experience-company">Tanzania Cybersecurity Forum</div>
-                <div class="experience-date">2020 - 2021</div>
-                <ul>
-                    <li>Assisted in security assessments of government systems</li>
-                    <li>Participated in national cybersecurity awareness campaigns</li>
-                    <li>Helped organize cybersecurity competitions and workshops</li>
-                </ul>
+            <div class="resume-item">
+                <h4><i class="fas fa-graduation-cap"></i> Certified Ethical Hacker (CEH)</h4>
+                <div class="resume-date">2023</div>
+                <h5>EC-Council</h5>
+                <p>Certified in ethical hacking methodologies and penetration testing techniques.</p>
+            </div>
+            
+            <div class="resume-item">
+                <h4><i class="fas fa-graduation-cap"></i> BSc in Computer Science</h4>
+                <div class="resume-date">2018 - 2022</div>
+                <h5>University of Dar es Salaam</h5>
+                <p>Specialized in cybersecurity and network administration.</p>
             </div>
         </section>
         
-        <section id="education">
-            <h2>Education & Certifications</h2>
+        <!-- Services Section -->
+        <section id="services">
+            <h2>My Services</h2>
+            <p>Comprehensive cybersecurity services to protect your digital assets and infrastructure.</p>
             
-            <div class="education-item">
-                <div class="education-title">Certified Ethical Hacker (CEH)</div>
-                <div class="education-institution">EC-Council</div>
-                <div class="education-date">2023</div>
-            </div>
-            
-            <div class="education-item">
-                <div class="education-title">BSc in Computer Science</div>
-                <div class="education-institution">University of Dar es Salaam</div>
-                <div class="education-date">2018 - 2022</div>
-            </div>
-            
-            <div class="education-item">
-                <div class="education-title">Offensive Security Certified Professional (OSCP)</div>
-                <div class="education-institution">Offensive Security</div>
-                <div class="education-date">In Progress</div>
-            </div>
-        </section>
-        
-        <section id="projects">
-            <h2>Notable Projects</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3');"></div>
-                    <div class="project-content">
-                        <h3 class="project-title">Tanzania Cybersecurity Awareness Platform</h3>
-                        <p>Developed an educational platform to teach cybersecurity fundamentals to Tanzanian students and professionals.</p>
-                        <div class="project-links">
-                            <a href="#" target="_blank">View Project</a>
-                        </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-shield-alt"></i>
                     </div>
+                    <h3>Penetration Testing</h3>
+                    <p>Comprehensive security assessments to identify vulnerabilities in your systems before attackers do.</p>
                 </div>
                 
-                <div class="project-card">
-                    <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-4.0.3');"></div>
-                    <div class="project-content">
-                        <h3 class="project-title">Vulnerable Web App for Training</h3>
-                        <p>Created intentionally vulnerable web application to help others learn penetration testing techniques.</p>
-                        <div class="project-links">
-                            <a href="#" target="_blank">View Project</a>
-                        </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-bug"></i>
                     </div>
+                    <h3>Vulnerability Assessment</h3>
+                    <p>Systematic review of security weaknesses in your systems with detailed remediation plans.</p>
                 </div>
                 
-                <div class="project-card">
-                    <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1563206767-5b18f218e8de?ixlib=rb-4.0.3');"></div>
-                    <div class="project-content">
-                        <h3 class="project-title">Automated Security Scanner</h3>
-                        <p>Built a custom tool to automate common security tests and vulnerability scans.</p>
-                        <div class="project-links">
-                            <a href="#" target="_blank">View Project</a>
-                        </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-lock"></i>
                     </div>
+                    <h3>Security Consulting</h3>
+                    <p>Expert advice on security architecture, policies, and best practices for your organization.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <h3>Network Security</h3>
+                    <p>Design and implementation of secure network architectures and monitoring solutions.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Secure Code Review</h3>
+                    <p>In-depth analysis of application source code to identify security vulnerabilities.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-user-shield"></i>
+                    </div>
+                    <h3>Security Training</h3>
+                    <p>Customized training programs to improve your team's security awareness and skills.</p>
                 </div>
             </div>
         </section>
         
-        <section id="achievements">
-            <h2>Achievements & Recognition</h2>
-            <ul>
-                <li>Winner of 2023 Tanzania National Cybersecurity Challenge</li>
-                <li>Featured speaker at East Africa Cybersecurity Conference 2022</li>
-                <li>Recognized by Tanzania Communications Regulatory Authority for security contributions</li>
-                <li>Published articles on cybersecurity in local tech magazines</li>
-                <li>Mentor for aspiring cybersecurity professionals in Tanzania</li>
-            </ul>
+        <!-- Counters Section -->
+        <section id="counters" class="counters">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem;">
+                <div class="counter-item">
+                    <div class="counter-number" data-count="50">0</div>
+                    <div class="counter-label">Projects Completed</div>
+                </div>
+                <div class="counter-item">
+                    <div class="counter-number" data-count="120">0</div>
+                    <div class="counter-label">Vulnerabilities Found</div>
+                </div>
+                <div class="counter-item">
+                    <div class="counter-number" data-count="15">0</div>
+                    <div class="counter-label">Happy Clients</div>
+                </div>
+                <div class="counter-item">
+                    <div class="counter-number" data-count="5">0</div>
+                    <div class="counter-label">Awards Won</div>
+                </div>
+            </div>
         </section>
         
+        <!-- Contact Section -->
         <section id="contact">
             <h2>Get In Touch</h2>
             <p>I'm always interested in discussing cybersecurity projects, collaborations, or job opportunities. Feel free to reach out!</p>
             
             <div class="contact-info">
                 <div class="contact-item">
-                    <i class="fas fa-envelope"></i>
-                    <span>ericksanga@example.com</span>
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Dar es Salaam, Tanzania</span>
                 </div>
                 <div class="contact-item">
                     <i class="fas fa-phone"></i>
                     <span>+255 747439472</span>
                 </div>
                 <div class="contact-item">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <span>Dar es Salaam, Tanzania</span>
+                    <i class="fas fa-envelope"></i>
+                    <span>ericksanga@example.com</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>+255 747439472</span>
                 </div>
             </div>
+            
+            <form id="contactForm" style="margin-top: 2rem;">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem;">
+                    <div class="form-group">
+                        <input type="text" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Your Email" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <textarea placeholder="Your Message" required></textarea>
+                </div>
+                <button type="submit">Send Message</button>
+            </form>
         </section>
     </div>
     
     <footer>
+        <h2><a href="#" class="footer-logo">ERICK SANGA</a></h2>
+        <div class="social-links" style="margin: 1.5rem 0;">
+            <a href="https://linkedin.com/in/yourprofile" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/yourusername" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://twitter.com/yourhandle" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://hackerone.com/yourprofile" target="_blank"><i class="fab fa-hackerrank"></i></a>
+        </div>
         <p>&copy; 2025 Erick Sanga. All rights reserved.</p>
         <p>Securing the digital world, one vulnerability at a time.</p>
     </footer>
+
+    <script>
+        // Preloader
+        window.addEventListener('load', function() {
+            const preloader = document.getElementById('preloader');
+            preloader.style.opacity = '0';
+            setTimeout(() => {
+                preloader.style.display = 'none';
+            }, 500);
+        });
+        
+        // Counter animation
+        function animateCounters() {
+            const counters = document.querySelectorAll('.counter-number');
+            const speed = 200;
+            
+            counters.forEach(counter => {
+                const target = parseInt(counter.getAttribute('data-count'));
+                const count = parseInt(counter.textContent);
+                const increment = target / speed;
+                
+                if (count < target) {
+                    counter.textContent = Math.ceil(count + increment);
+                    setTimeout(animateCounters, 1);
+                } else {
+                    counter.textContent = target;
+                }
+            });
+        }
+        
+        // Start counter animation when counters section is in view
+        window.addEventListener('scroll', function() {
+            const countersSection = document.getElementById('counters');
+            const position = countersSection.getBoundingClientRect().top;
+            const screenPosition = window.innerHeight / 1.3;
+            
+            if (position < screenPosition) {
+                animateCounters();
+                // Remove event listener after first trigger
+                window.removeEventListener('scroll', this);
+            }
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! I will get back to you soon.');
+            this.reset();
+        });
+    </script>
 </body>
 </html>
